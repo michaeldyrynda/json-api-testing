@@ -29,7 +29,6 @@ use SebastianBergmann\Comparator\ComparisonFailure;
  */
 class SubsetInDocument extends Constraint
 {
-
     /**
      * @var array
      */
@@ -64,7 +63,7 @@ class SubsetInDocument extends Constraint
     /**
      * @inheritdoc
      */
-    public function evaluate($other, $description = '', $returnResult = false)
+    public function evaluate($other, $description = '', $returnResult = false): ?bool
     {
         $actual = Document::cast($other)->get($this->pointer);
         $result = $this->compare($this->expected, $actual, $this->strict);
@@ -80,6 +79,8 @@ class SubsetInDocument extends Constraint
                 $this->failure($actual)
             );
         }
+
+        return null;
     }
 
     /**
@@ -120,5 +121,4 @@ class SubsetInDocument extends Constraint
     {
         return Compare::failure($this->expected, $actual, true);
     }
-
 }

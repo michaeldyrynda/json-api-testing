@@ -28,7 +28,6 @@ use PHPUnit\Framework\Constraint\Constraint;
  */
 class ExactInDocument extends Constraint
 {
-
     /**
      * @var mixed
      */
@@ -63,7 +62,7 @@ class ExactInDocument extends Constraint
     /**
      * @inheritdoc
      */
-    public function evaluate($other, $description = '', $returnResult = false)
+    public function evaluate($other, $description = '', $returnResult = false): ?bool
     {
         $actual = Document::cast($other)->get($this->pointer);
         $result = Compare::exact($this->expected, $actual, $this->strict);
@@ -75,6 +74,8 @@ class ExactInDocument extends Constraint
         if (!$result) {
             $this->fail($other, $description, Compare::failure($this->expected, $actual));
         }
+
+        return null;
     }
 
     /**
@@ -95,5 +96,4 @@ class ExactInDocument extends Constraint
             . "within JSON API document:" . PHP_EOL
             . Document::cast($document);
     }
-
 }
