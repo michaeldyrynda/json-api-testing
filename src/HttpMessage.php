@@ -86,7 +86,7 @@ class HttpMessage implements ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->getDocument()->offsetExists($offset);
     }
@@ -94,7 +94,7 @@ class HttpMessage implements ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->getDocument()->offsetGet($offset);
     }
@@ -102,17 +102,17 @@ class HttpMessage implements ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
-        return $this->getDocument()->offsetSet($offset, $value);
+        $this->getDocument()->offsetSet($offset, $value);
     }
 
     /**
      * @inheritDoc
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
-        return $this->getDocument()->offsetUnset($offset);
+        $this->getDocument()->offsetUnset($offset);
     }
 
     /**

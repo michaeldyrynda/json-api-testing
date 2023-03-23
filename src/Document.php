@@ -137,7 +137,7 @@ class Document implements Arrayable, JsonSerializable, ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return collect($this->document)->offsetExists($offset);
     }
@@ -145,7 +145,7 @@ class Document implements Arrayable, JsonSerializable, ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return collect($this->document)->offsetGet($offset);
     }
@@ -153,7 +153,7 @@ class Document implements Arrayable, JsonSerializable, ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         throw new \LogicException('Not implemented.');
     }
@@ -161,7 +161,7 @@ class Document implements Arrayable, JsonSerializable, ArrayAccess
     /**
      * @inheritDoc
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new \LogicException('Not implemented.');
     }
@@ -216,7 +216,7 @@ class Document implements Arrayable, JsonSerializable, ArrayAccess
     /**
      * @inheritDoc
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return Compare::sort($this->document);
     }
