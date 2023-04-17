@@ -96,7 +96,7 @@ class OnlySubsetsInList extends Constraint
     /**
      * @inheritdoc
      */
-    protected function fail(mixed $other, string $description, ?ComparisonFailure $comparisonFailure = null): never
+    protected function fail($other, $description, ?ComparisonFailure $comparisonFailure = null): void
     {
         if (!$comparisonFailure) {
             $comparisonFailure = Compare::failure(

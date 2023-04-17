@@ -32,7 +32,7 @@ class OnlyIdentifiersInList extends OnlySubsetsInList
     /**
      * @inheritdoc
      */
-    protected function fail(mixed $other, string $description, ?ComparisonFailure $comparisonFailure = null): never
+    protected function fail($other, $description, ?ComparisonFailure $comparisonFailure = null): void
     {
         $comparisonFailure = Compare::failure(
             $this->expected,
